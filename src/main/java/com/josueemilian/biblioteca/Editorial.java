@@ -45,4 +45,12 @@ public class Editorial {
         String vEstado = "";
         return vEstado;
     }
+    
+    //propiedad to String
+
+    @Override
+    public String toString() {
+        return "nombre = " + nombre + ", estado = " + estado;
+    }
+    
 }

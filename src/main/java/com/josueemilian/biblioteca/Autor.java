@@ -55,4 +55,12 @@ public class Autor {
         int vBorrar = 0;
         return vBorrar;
     }
+    
+    //propiedad to string
+
+    @Override
+    public String toString() {
+        return "Nombre = " + Nombre + ", fecha de Nacimiento = " + fechaNacimiento + ", Estado = " + estado;
+    }
+    
 }

@@ -12,6 +12,7 @@ public class Biblioteca {
         int vOpcionSubMenu = 0;
         //creacion de Array List
         ArrayList<Categoria> aCategorias = new ArrayList();
+        ArrayList<Editorial> aEditoriales = new ArrayList();
 
         manejoMenu oMenu = new manejoMenu();
         ManejoInformacion oInformacion = new ManejoInformacion();
@@ -26,6 +27,7 @@ public class Biblioteca {
                     oInformacion.manejoCategorias(vOpcionSubMenu, aCategorias);
                     break;
                 case 2:
+                    oInformacion.manejoEditoriales(vOpcionSubMenu,aEditoriales);
                     break;
                 case 3:
                     break;
