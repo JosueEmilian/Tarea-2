@@ -10,16 +10,5 @@ package funcionalidades;
  * @author josueemilian
  */
 public class modificacionesextremas {
-<<<<<<< HEAD
-    //otro tipo de modss
-    //corregimos el codigo para trabajar remotamente
-    //creo que ya esta todo solucionado
-    //realizamos un ultimo pul
-    //pull mas
-    //todo esto para terminar
-    //pero necesitooo mis lentes jajaja :(
-    //le voy a dar otra oportunidad mas espero sea la buena
-=======
-    //esperando
->>>>>>> modificaciones
+    //dejemos a si esa mierda
 }
