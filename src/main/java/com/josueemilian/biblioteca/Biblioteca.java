@@ -1,22 +1,25 @@
 package com.josueemilian.biblioteca;
 
 import funcionalidades.ManejoInformacion;
+import funcionalidades.manejoArchivos;
 import funcionalidades.manejoMenu;
 import javax.swing.*;
 import java.util.ArrayList;
 
 public class Biblioteca {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         int vOpcionMenu;
         int vOpcionSubMenu = 0;
         //creacion de Array List
         ArrayList<Categoria> aCategorias = new ArrayList();
         ArrayList<Editorial> aEditoriales = new ArrayList();
-
+        
+        //intanciamos las clases
         manejoMenu oMenu = new manejoMenu();
         ManejoInformacion oInformacion = new ManejoInformacion();
-
+        manejoArchivos oArchivos = new manejoArchivos();
+        oArchivos.recuperarInformacion(aCategorias);
         do {
             vOpcionMenu = oMenu.mostrararMenu();
             if (vOpcionMenu != 9) {
@@ -42,7 +45,7 @@ public class Biblioteca {
                 case 8:
                     break;
                 case 9:
-                    JOptionPane.showMessageDialog(null, "Fin de la aplicacion");
+                    oArchivos.resguardarInformacion(aCategorias);
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Vuelve a Intentarlo");
