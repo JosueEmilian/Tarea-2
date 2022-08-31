@@ -1,6 +1,7 @@
 package com.josueemilian.biblioteca;
+import java.io.Serializable;
 import java.util.ArrayList;
-public class Libros {
+public class Libros implements Serializable{
 
     private String nombre;
     private int anio;

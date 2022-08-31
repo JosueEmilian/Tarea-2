@@ -3,6 +3,7 @@ package funcionalidades;
 import com.josueemilian.biblioteca.Categoria;
 import com.josueemilian.biblioteca.Editorial;
 import com.josueemilian.biblioteca.Autor;
+import com.josueemilian.biblioteca.Libros;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -139,6 +140,50 @@ public class manejoArchivos {
         }
     }
 
+    
+    //Txt Libros
+    private void guardarLibros(ArrayList<Libros> pLibros) {
+        String vNombreArchivo = "libros.txt";
+        try {
+            FileOutputStream archivoSalida = new FileOutputStream(vNombreArchivo);
+            ObjectOutputStream objetoSalida = new ObjectOutputStream(archivoSalida);
+            for (Libros e : pLibros) {
+                objetoSalida.writeObject(e);
+                System.out.println("Almacenando registro -> " + e.getNombre());
+            }
+            objetoSalida.close();
+            archivoSalida.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Archivo no disponible | " + ex);
+        } catch (IOException ex) {
+            System.out.println("Archivo no disponible ok | " + ex);
+        }
+
+    }
+
+    private void recuperarLibros(ArrayList<Libros> pLibros) {
+        String vNombreArchivo = "libros.txt";
+        Libros vLibro = null;
+        try {
+            FileInputStream archivoEntrada = new FileInputStream(vNombreArchivo);
+            ObjectInputStream objetoEntrada = new ObjectInputStream(archivoEntrada);
+            while (objetoEntrada != null) {
+                vLibro = (Libros) objetoEntrada.readObject();
+                pLibros.add(vLibro);
+                System.out.println("Recuperando Libro: ->" + vLibro.getNombre());
+            }
+            objetoEntrada.close();
+            archivoEntrada.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error: " + ex);
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex);
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Error: " + ex);
+        }
+    }
+    
+    
     //////////////////////////////
     public void resguardarInformacion(ArrayList<Categoria> pCategorias) {
         guardarCategorias(pCategorias);
@@ -162,5 +207,13 @@ public class manejoArchivos {
 
     public void recuperarInformacionAutores(ArrayList<Autor> pAutores) {
         recuperarAutores(pAutores);
+    }
+    
+    public void resguardarInformacionLibros(ArrayList<Libros> pLibros){
+        guardarLibros(pLibros);
+    }
+    
+    public void recuperarInformacionLibros(ArrayList<Libros> pLibros){
+        recuperarLibros(pLibros);
     }
 }

@@ -26,6 +26,7 @@ public class Biblioteca {
         oArchivos.recuperarInformacion(aCategorias);
         oArchivos.recuperarInformacionEdit(aEditoriales);
         oArchivos.recuperarInformacionAutores(aAutores);
+        oArchivos.recuperarInformacionLibros(pLibros);
         
         
         do {
@@ -58,6 +59,7 @@ public class Biblioteca {
                     oArchivos.resguardarInformacion(aCategorias);
                     oArchivos.resguardarInformacionEdit(aEditoriales);
                     oArchivos.resguardarInformacionAutores(aAutores);
+                    oArchivos.resguardarInformacionLibros(pLibros);
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Vuelve a Intentarlo");
