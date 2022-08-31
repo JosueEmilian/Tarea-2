@@ -1,5 +1,6 @@
 com/josueemilian/biblioteca/Copia.class
 com/josueemilian/biblioteca/Editorial.class
+funcionalidades/manejoArchivos.class
 funcionalidades/manejoMenu.class
 com/josueemilian/biblioteca/Libros.class
 com/josueemilian/biblioteca/Categoria.class
@@ -8,3 +9,4 @@ com/josueemilian/biblioteca/Biblioteca.class
 com/josueemilian/biblioteca/Multas.class
 com/josueemilian/biblioteca/Autor.class
 com/josueemilian/biblioteca/Prestamos.class
+funcionalidades/ManejoInformacion.class

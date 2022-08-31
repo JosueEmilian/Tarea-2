@@ -1,6 +1,8 @@
 package com.josueemilian.biblioteca;
 
-public class Lectores {
+import java.io.Serializable;
+
+public class Lectores implements Serializable{
     private int DPI;
     private String nombre;
     
@@ -40,4 +42,13 @@ public class Lectores {
         String vEstado = "";
         return vEstado;
     }
+    
+    //propiedad to String
+
+    @Override
+    public String toString() {
+        return "DPI = " + DPI + ", Nombre = " + nombre;
+    }
+    
+    
 }

@@ -1,6 +1,8 @@
 package com.josueemilian.biblioteca;
 
-public class Categoria {
+import java.io.Serializable;
+
+public class Categoria implements Serializable{
     //Atributos
     private String nombre;
     private String estado;

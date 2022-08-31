@@ -1,8 +1,9 @@
 package com.josueemilian.biblioteca;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Autor {
+public class Autor implements Serializable{
     private String Nombre;
     private String fechaNacimiento;
     private String estado;
@@ -55,4 +56,12 @@ public class Autor {
         int vBorrar = 0;
         return vBorrar;
     }
+    
+    //propiedad to string
+
+    @Override
+    public String toString() {
+        return "Nombre = " + Nombre + ", fecha de Nacimiento = " + fechaNacimiento + ", Estado = " + estado;
+    }
+    
 }

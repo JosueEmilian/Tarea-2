@@ -1,10 +1,11 @@
 package com.josueemilian.biblioteca;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class Multas {
+
+public class Multas implements Serializable{
     private int NumeroMulta;
-    private Date fechaMulta;
+    private String fechaMulta;
     private int Monto;
     private String Estado;
     private Lectores multaLector;
@@ -18,11 +19,11 @@ public class Multas {
         this.NumeroMulta = NumeroMulta;
     }
 
-    public Date getFechaMulta() {
+    public String getFechaMulta() {
         return fechaMulta;
     }
 
-    public void setFechaMulta(Date fechaMulta) {
+    public void setFechaMulta(String fechaMulta) {
         this.fechaMulta = fechaMulta;
     }
 
@@ -53,16 +54,15 @@ public class Multas {
     //constructor vacio
     public Multas() {
     }
-    
+ 
     //constructor
-    public Multas(int NumeroMulta, Date fechaMulta, int Monto, String Estado, Lectores multaLector) {
+    public Multas(int NumeroMulta, String fechaMulta, int Monto, String Estado, Lectores multaLector) {
         this.NumeroMulta = NumeroMulta;
         this.fechaMulta = fechaMulta;
         this.Monto = Monto;
         this.Estado = Estado;
         this.multaLector = multaLector;
     }
-    
 
     //metodos
     public int pagoMulta(){
@@ -73,4 +73,13 @@ public class Multas {
         String vEstado = "";
         return vEstado;
     }
+    
+    //Propiedad to String
+
+    @Override
+    public String toString() {
+        return "Numero de Multa = " + NumeroMulta + ", Fecha Multa=" + fechaMulta + ", Monto=" + Monto + ", Estado=" + Estado;
+    }
+    
+    
 }
