@@ -1,8 +1,9 @@
 package com.josueemilian.biblioteca;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Autor {
+public class Autor implements Serializable{
     private String Nombre;
     private String fechaNacimiento;
     private String estado;

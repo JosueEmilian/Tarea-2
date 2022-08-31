@@ -1,6 +1,8 @@
 package com.josueemilian.biblioteca;
 
-public class Editorial {
+import java.io.Serializable;
+
+public class Editorial implements Serializable{
     private String nombre;
     private String estado;
     

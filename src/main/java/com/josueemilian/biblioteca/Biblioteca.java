@@ -11,15 +11,23 @@ public class Biblioteca {
     public static void main(String[] args){
         int vOpcionMenu;
         int vOpcionSubMenu = 0;
+        
         //creacion de Array List
         ArrayList<Categoria> aCategorias = new ArrayList();
         ArrayList<Editorial> aEditoriales = new ArrayList();
+        ArrayList<Autor> aAutores = new ArrayList();
+        ArrayList<Libros> pLibros = new ArrayList();
         
         //intanciamos las clases
         manejoMenu oMenu = new manejoMenu();
         ManejoInformacion oInformacion = new ManejoInformacion();
         manejoArchivos oArchivos = new manejoArchivos();
+        
         oArchivos.recuperarInformacion(aCategorias);
+        oArchivos.recuperarInformacionEdit(aEditoriales);
+        oArchivos.recuperarInformacionAutores(aAutores);
+        
+        
         do {
             vOpcionMenu = oMenu.mostrararMenu();
             if (vOpcionMenu != 9) {
@@ -33,8 +41,10 @@ public class Biblioteca {
                     oInformacion.manejoEditoriales(vOpcionSubMenu,aEditoriales);
                     break;
                 case 3:
+                    oInformacion.manejoAutores(vOpcionSubMenu, aAutores);
                     break;
                 case 4:
+                    oInformacion.manejoLibros(vOpcionSubMenu, pLibros);
                     break;
                 case 5:
                     break;
@@ -46,13 +56,13 @@ public class Biblioteca {
                     break;
                 case 9:
                     oArchivos.resguardarInformacion(aCategorias);
+                    oArchivos.resguardarInformacionEdit(aEditoriales);
+                    oArchivos.resguardarInformacionAutores(aAutores);
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Vuelve a Intentarlo");
                     break;
             }
         } while (vOpcionMenu != 9);
-
     }
-
 }

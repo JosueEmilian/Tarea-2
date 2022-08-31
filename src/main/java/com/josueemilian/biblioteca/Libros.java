@@ -4,7 +4,7 @@ public class Libros {
 
     private String nombre;
     private int anio;
-    private String Estado;
+    private String estado;
     private Categoria eategoriaLibro;
     private Editorial editorialLibro;
     //private Autor autorLibro;
@@ -31,11 +31,11 @@ public class Libros {
     }
 
     public String getEstado() {
-        return Estado;
+        return estado;
     }
 
-    public void setEstado(String Estado) {
-        this.Estado = Estado;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public Categoria getEategoriaLibro() {
@@ -62,17 +62,17 @@ public class Libros {
         this.AutoresLibro = AutoresLibro;
     }
     
-    
-    
     //constructor vacio
+
     public Libros() {
     }
-
+    
     //constructor
-    public Libros(String nombre, int anio, String Estado, Categoria eategoriaLibro, Editorial editorialLibro, ArrayList<Autor> AutoresLibro) {
+
+    public Libros(String nombre, int anio, String estado, Categoria eategoriaLibro, Editorial editorialLibro, ArrayList<Autor> AutoresLibro) {
         this.nombre = nombre;
         this.anio = anio;
-        this.Estado = Estado;
+        this.estado = estado;
         this.eategoriaLibro = eategoriaLibro;
         this.editorialLibro = editorialLibro;
         this.AutoresLibro = AutoresLibro;
@@ -93,4 +93,13 @@ public class Libros {
         String vEstado = "";
         return vEstado;
     }
+    
+    
+    //propiedad toString
+
+    @Override
+    public String toString() {
+        return "nombre = " + nombre + ", anio = " + anio + ", estado = " + estado + ", Categoria = " + eategoriaLibro.getNombre() + ", Editorial = " + editorialLibro.getNombre() + ", Autor = " + AutoresLibro;
+    }
+    
 }
