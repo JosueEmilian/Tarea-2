@@ -1,6 +1,8 @@
 package com.josueemilian.biblioteca;
 
-public class Copia {
+import java.io.Serializable;
+
+public class Copia implements Serializable{
     private int identificador;
     private String estado;
     private Libros copiaLibro;
@@ -49,4 +51,15 @@ public class Copia {
         String vEstado = "";
         return vEstado;
     }
+    
+    //Propiedad to String
+
+    @Override
+    public String toString() {
+        return "identificador = " + identificador + ", Estado=" + estado;
+    }
+    
+    
+    
+    
 }

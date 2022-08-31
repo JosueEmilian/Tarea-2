@@ -4,10 +4,13 @@ import com.josueemilian.biblioteca.Categoria;
 import com.josueemilian.biblioteca.Editorial;
 import com.josueemilian.biblioteca.Autor;
 import com.josueemilian.biblioteca.Libros;
+import com.josueemilian.biblioteca.Copia;
+import com.josueemilian.biblioteca.Lectores;
+import com.josueemilian.biblioteca.Prestamos;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class ManejoInformacion extends Libros{
+public class ManejoInformacion {
 
     //CRUD CATEGORIA
     private Categoria agregarCategoria() {
@@ -387,6 +390,323 @@ public class ManejoInformacion extends Libros{
             default:
                 break;
         }
+    }
+    
+   
+    //CRUD COPIAS
+    private Copia agregarCopias(){
+        Copia vCopia;
+        
+        int vIdentificador;      
+        String vEstado = "";
+        
+        vIdentificador = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Identificador: ", "Registro de Copias", JOptionPane.INFORMATION_MESSAGE));
+        vEstado = JOptionPane.showInputDialog(null, "Ingrese el estado: ", "Registro de Copias", JOptionPane.INFORMATION_MESSAGE);
+        
+                
+        Libros l = new Libros();
+        
+        vCopia = new Copia(vIdentificador, vEstado,l);
+
+        return vCopia;
+    }
+    
+    
+    private void mostrarCopias(ArrayList<Copia> pCopias) {
+        String vInformacion = "";
+        int vNumero = 1;
+        for (Copia e : pCopias) {
+            vInformacion = vInformacion + "\n" + vNumero + "-" + e.toString();
+            vNumero++;
+        }
+        JOptionPane.showMessageDialog(null, vInformacion, "Listado de Libros", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    
+    private void modificarCopias(ArrayList<Copia> pCopias) {
+        Copia vCopias = null;
+        String[] vAInformacion = new String[pCopias.size()];
+        String vInformacion = "";
+        
+        int vIdentificador;
+        String vEstado = "";
+        
+        
+        int vNumero = 0;
+        for (Copia e: pCopias) {            
+            vAInformacion[vNumero] = e.getEstado();
+            vNumero++;
+        }
+        vInformacion = (String) JOptionPane.showInputDialog(null, "Cual es el libro a modificar", "Listado de Autores", JOptionPane.INFORMATION_MESSAGE, null, vAInformacion, 1);
+        for (Copia e : pCopias) {
+            if (e.getEstado().equalsIgnoreCase(vInformacion)) {
+                vCopias = e;
+                break;
+            }
+        }
+
+        vIdentificador = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Identificador", "Actualizacion de Copias", JOptionPane.INFORMATION_MESSAGE));
+        vEstado = JOptionPane.showInputDialog(null, "Ingrese el Estado", "Actualizacion de Copias", JOptionPane.INFORMATION_MESSAGE);
+        vCopias.setIdentificador(vIdentificador);
+        vCopias.setEstado(vEstado);
+    }
+
+    
+    private void eliminarCopia(ArrayList<Copia> pCopias) {
+        Copia vCopias = null;
+        String[] vAInformacion = new String[pCopias.size()];
+        String vInformacion = "";
+        int vNumero = 0;
+        for (Copia e: pCopias) {
+            vAInformacion[vNumero] = e.getEstado();
+            vNumero++;
+        }
+        vInformacion = (String) JOptionPane.showInputDialog(null, "Cual es la copia a eliminar", "Listado de Copias", JOptionPane.INFORMATION_MESSAGE, null, vAInformacion, 1);
+        for (Copia e : pCopias) {
+            if (e.getEstado().equalsIgnoreCase(vInformacion)) {
+                vCopias = e;
+                break;
+            }
+        }
+        pCopias.remove(vCopias);
+        JOptionPane.showMessageDialog(null, "Copia Elimando");
+    }
+    
+ 
+    
+
+    public void manejoCopias(int pOpcion, ArrayList<Copia> pCopias) {
+        Copia vCopia;
+        switch (pOpcion) {
+            case 1:
+                vCopia = agregarCopias();
+                pCopias.add(vCopia);
+                break;
+            case 2:
+                 mostrarCopias(pCopias);
+                break;
+            case 3:
+                modificarCopias(pCopias);
+                break;
+            case 4:
+               eliminarCopia(pCopias);
+                break;
+            default:
+                break;
+        }
     }   
+
+    //CRUD LECTORES
+    private Lectores agregarLectores(){
+        Lectores vLector;
+        
+        int vDPI;      
+        String vNombre = "";
+        
+        vDPI = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el DPI: ", "Registro de Lectores", JOptionPane.INFORMATION_MESSAGE));
+        vNombre = JOptionPane.showInputDialog(null, "Ingrese el Nombre: ", "Registro de Lectores", JOptionPane.INFORMATION_MESSAGE);
+                
+        vLector = new Lectores(vDPI, vNombre);
+
+        return vLector;
+    }
+    
+    
+    private void mostrarLectores(ArrayList<Lectores> pLectores) {
+        String vInformacion = "";
+        int vNumero = 1;
+        for (Lectores e : pLectores) {
+            vInformacion = vInformacion + "\n" + vNumero + "-" + e.toString();
+            vNumero++;
+        }
+        JOptionPane.showMessageDialog(null, vInformacion, "Listado de Lectores", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    
+    private void modificarLectores(ArrayList<Lectores> pLectores) {
+        Lectores vLectores = null;
+        String[] vAInformacion = new String[pLectores.size()];
+        String vInformacion = "";
+        
+        int vDPI;
+        String vNombre = "";
+        
+        
+        int vNumero = 0;
+        for (Lectores e: pLectores) {            
+            vAInformacion[vNumero] = e.getNombre();
+            vNumero++;
+        }
+        vInformacion = (String) JOptionPane.showInputDialog(null, "Cual es el Lector a modificar", "Listado de Lectores", JOptionPane.INFORMATION_MESSAGE, null, vAInformacion, 1);
+        for (Lectores e : pLectores) {
+            if (e.getNombre().equalsIgnoreCase(vInformacion)) {
+                vLectores = e;
+                break;
+            }
+        }
+
+        vDPI = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el DPI", "Actualizacion de Lectores", JOptionPane.INFORMATION_MESSAGE));
+        vNombre = JOptionPane.showInputDialog(null, "Ingrese el Nombre", "Actualizacion de Lectores", JOptionPane.INFORMATION_MESSAGE);
+        vLectores.setDPI(vDPI);
+        vLectores.setNombre(vNombre);
+    }
+
+    
+    private void eliminarLectores(ArrayList<Lectores> pLectores) {
+        Lectores vLectores = null;
+        String[] vAInformacion = new String[pLectores.size()];
+        String vInformacion = "";
+        int vNumero = 0;
+        for (Lectores e: pLectores) {
+            vAInformacion[vNumero] = e.getNombre();
+            vNumero++;
+        }
+        vInformacion = (String) JOptionPane.showInputDialog(null, "Cual es el Lector a eliminar", "Listado de Lectores", JOptionPane.INFORMATION_MESSAGE, null, vAInformacion, 1);
+        for (Lectores e : pLectores) {
+            if (e.getNombre().equalsIgnoreCase(vInformacion)) {
+                vLectores = e;
+                break;
+            }
+        }
+        pLectores.remove(vLectores);
+        JOptionPane.showMessageDialog(null, "Lector Elimando");
+    }
+    
+ 
+    
+
+    public void manejoLectores(int pOpcion, ArrayList<Lectores> pLectores) {
+        Lectores vLectores;
+        switch (pOpcion) {
+            case 1:
+                vLectores = agregarLectores();
+                pLectores.add(vLectores);
+                break;
+            case 2:
+                 mostrarLectores(pLectores);
+                break;
+            case 3:
+                modificarLectores(pLectores);
+                break;
+            case 4:
+                eliminarLectores(pLectores);
+                break;
+            default:
+                break;
+        }
+    }   
+    
+    
+    //CRUD PRESTAMOS
+    private Prestamos agregarPrestamos(){
+        Prestamos vPrestamo;
+        
+        int vNumeroPrestamo; 
+        String vFechaPrestamo = "";
+        String vFechaDevolucion = "";
+        
+        Copia c = new Copia();
+        Lectores l = new Lectores();
+         
+        vNumeroPrestamo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Numero de Prestamo: ", "Registro de Prestamos", JOptionPane.INFORMATION_MESSAGE));
+        vFechaPrestamo = JOptionPane.showInputDialog(null, "Ingrese la fecha del prestamo: ", "Registro de Prestamos", JOptionPane.INFORMATION_MESSAGE);
+        vFechaDevolucion = JOptionPane.showInputDialog(null, "Ingrese la fecha de Devolucion: ", "Registro de Prestamos", JOptionPane.INFORMATION_MESSAGE);
+
+        vPrestamo = new Prestamos(vNumeroPrestamo, vFechaPrestamo, vFechaDevolucion, c, l);
+
+        return vPrestamo;
+    }
+    
+    
+    private void mostrarPrestamos(ArrayList<Prestamos> pPrestamos) {
+        String vInformacion = "";
+        int vNumero = 1;
+        for (Prestamos e : pPrestamos) {
+            vInformacion = vInformacion + "\n" + vNumero + "-" + e.toString();
+            vNumero++;
+        }
+        JOptionPane.showMessageDialog(null, vInformacion, "Listado de Prestamos", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+  
+    private void modificarPrestamos(ArrayList<Prestamos> pPrestamos) {
+        Prestamos vPrestamos = null;
+        String[] vAInformacion = new String[pPrestamos.size()];
+        String vInformacion = "";
+        
+        int vNumeroPrestamo; 
+        String vFechaPrestamo = "";
+        String vFechaDevolucion = "";
+       // Copia pCopia = new Copia();
+        //Lectores pLector = new Lectores();
+        
+        int vNumero = 0;
+        for (Prestamos e: pPrestamos) {            
+            vAInformacion[vNumero] = e.getFechaDevolucion();
+            vNumero++;
+        }
+        vInformacion = (String) JOptionPane.showInputDialog(null, "Cual es el prestamo a modificar", "Listado de Prestamos", JOptionPane.INFORMATION_MESSAGE, null, vAInformacion, 1);
+        for (Prestamos e : pPrestamos) {
+            if (e.getFechaDevolucion().equalsIgnoreCase(vInformacion)) {
+                vPrestamos = e;
+                break;
+            }
+        }
+
+        vNumeroPrestamo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Numero de Prestamo", "Actualizacion de Prestamos", JOptionPane.INFORMATION_MESSAGE));
+        vFechaPrestamo = JOptionPane.showInputDialog(null, "Ingrese la fecha de Prestamo", "Actualizacion de Prestamos", JOptionPane.INFORMATION_MESSAGE);
+        vFechaDevolucion = JOptionPane.showInputDialog(null, "Ingrese la fecha de Devolucion", "Actualizacion de Prestamos", JOptionPane.INFORMATION_MESSAGE);
+        vPrestamos.setNumeroPrestamo(vNumeroPrestamo);
+        vPrestamos.setFechaPrestamo(vFechaPrestamo);
+        vPrestamos.setFechaDevolucion(vFechaDevolucion);
+        
+    }
+
+   
+    private void eliminarPrestamos(ArrayList<Prestamos> pPrestamos) {
+        Prestamos vPrestamos = null;
+        String[] vAInformacion = new String[pPrestamos.size()];
+        String vInformacion = "";
+        int vNumero = 0;
+        for (Prestamos e: pPrestamos) {
+            vAInformacion[vNumero] = e.getFechaDevolucion();
+            vNumero++;
+        }
+        vInformacion = (String) JOptionPane.showInputDialog(null, "Cual es el Prestamo a eliminar", "Listado de Prestamos", JOptionPane.INFORMATION_MESSAGE, null, vAInformacion, 1);
+        for (Prestamos e : pPrestamos) {
+            if (e.getFechaDevolucion().equalsIgnoreCase(vInformacion)) {
+                vPrestamos = e;
+                break;
+            }
+        }
+        pPrestamos.remove(vPrestamos);
+        JOptionPane.showMessageDialog(null, "Prestamo Elimando");
+    }
+    
+ 
+    
+
+    public void manejoPrestamos(int pOpcion, ArrayList<Prestamos> pPrestamos) {
+        Prestamos vPrestamos;
+        switch (pOpcion) {
+            case 1:
+                vPrestamos = agregarPrestamos();
+                pPrestamos.add(vPrestamos);
+                break;
+            case 2:
+                 mostrarPrestamos(pPrestamos);
+                break;
+            case 3:
+                modificarPrestamos(pPrestamos);
+                break;
+            case 4:
+                eliminarPrestamos(pPrestamos);
+                break;
+            default:
+                break;
+        }
+    }   
+    
+   
 
 }

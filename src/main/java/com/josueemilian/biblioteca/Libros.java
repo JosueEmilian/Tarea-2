@@ -12,6 +12,10 @@ public class Libros implements Serializable{
     
     //creamos arraylist
     private ArrayList<Autor>AutoresLibro;
+
+    public Libros(Libros copiaLibro) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     //getters and setters
 

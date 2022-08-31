@@ -16,7 +16,10 @@ public class Biblioteca {
         ArrayList<Categoria> aCategorias = new ArrayList();
         ArrayList<Editorial> aEditoriales = new ArrayList();
         ArrayList<Autor> aAutores = new ArrayList();
-        ArrayList<Libros> pLibros = new ArrayList();
+        ArrayList<Libros> aLibros = new ArrayList();
+        ArrayList<Copia> aCopias = new ArrayList();
+        ArrayList<Lectores> aLectores = new ArrayList();
+        ArrayList<Prestamos> aPrestamos = new ArrayList();
         
         //intanciamos las clases
         manejoMenu oMenu = new manejoMenu();
@@ -26,7 +29,10 @@ public class Biblioteca {
         oArchivos.recuperarInformacion(aCategorias);
         oArchivos.recuperarInformacionEdit(aEditoriales);
         oArchivos.recuperarInformacionAutores(aAutores);
-        oArchivos.recuperarInformacionLibros(pLibros);
+        oArchivos.recuperarInformacionLibros(aLibros);
+        oArchivos.recuperarInformacionCopias(aCopias);
+        oArchivos.recuperarInformacionLectores(aLectores);
+        oArchivos.recuperarInformacionPrestamos(aPrestamos);
         
         
         do {
@@ -45,13 +51,16 @@ public class Biblioteca {
                     oInformacion.manejoAutores(vOpcionSubMenu, aAutores);
                     break;
                 case 4:
-                    oInformacion.manejoLibros(vOpcionSubMenu, pLibros);
+                    oInformacion.manejoLibros(vOpcionSubMenu, aLibros);
                     break;
                 case 5:
+                    oInformacion.manejoCopias(vOpcionSubMenu, aCopias);
                     break;
                 case 6:
+                    oInformacion.manejoLectores(vOpcionSubMenu, aLectores);
                     break;
                 case 7:
+                    oInformacion.manejoPrestamos(vOpcionSubMenu, aPrestamos);
                     break;
                 case 8:
                     break;
@@ -59,7 +68,10 @@ public class Biblioteca {
                     oArchivos.resguardarInformacion(aCategorias);
                     oArchivos.resguardarInformacionEdit(aEditoriales);
                     oArchivos.resguardarInformacionAutores(aAutores);
-                    oArchivos.resguardarInformacionLibros(pLibros);
+                    oArchivos.resguardarInformacionLibros(aLibros);
+                    oArchivos.resguardarInformacionCopias(aCopias);
+                    oArchivos.resguardarInformacionLectores(aLectores);
+                    oArchivos.resguardarInformacionPrestamos(aPrestamos);
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Vuelve a Intentarlo");
