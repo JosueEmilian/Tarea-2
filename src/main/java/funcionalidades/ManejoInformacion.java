@@ -625,7 +625,7 @@ public class ManejoInformacion {
             }
         }
 
-        vNumeroPrestamo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Numero de Prestamo", "Actualizacion de Prestamos", JOptionPane.INFORMATION_MESSAGE));
+        vNumeroPrestamo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Numero de Prestamo", "Actualizacion  de Prestamos", JOptionPane.INFORMATION_MESSAGE));
         vFechaPrestamo = JOptionPane.showInputDialog(null, "Ingrese la fecha de Prestamo", "Actualizacion de Prestamos", JOptionPane.INFORMATION_MESSAGE);
         vFechaDevolucion = JOptionPane.showInputDialog(null, "Ingrese la fecha de Devolucion", "Actualizacion de Prestamos", JOptionPane.INFORMATION_MESSAGE);
         vPrestamos.setNumeroPrestamo(vNumeroPrestamo);
