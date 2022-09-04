@@ -78,7 +78,11 @@ public class Biblioteca {
                     oArchivos.resguardarInformacionMultas(aMultas);
                     break;
                 default:
+<<<<<<< HEAD
                     JOptionPane.showMessageDialog(null, "Vuelve a Intentarlo");
+=======
+                    JOptionPane.showMessageDialog(null, "Vuelve a Intentarlo...,");
+>>>>>>> 747fe3ea98b7d621c8effdb5ac848a36649d57d0
                     break;
             }
         } while (vOpcionMenu != 9);
