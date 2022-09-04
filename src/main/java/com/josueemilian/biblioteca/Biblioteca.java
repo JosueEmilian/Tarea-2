@@ -79,6 +79,7 @@ public class Biblioteca {
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Vuelve a Intentarlo");
+                    System.out.println("PRUEBAAAA");
                     break;
             }
         } while (vOpcionMenu != 9);
