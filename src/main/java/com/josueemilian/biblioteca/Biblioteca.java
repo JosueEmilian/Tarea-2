@@ -78,8 +78,7 @@ public class Biblioteca {
                     oArchivos.resguardarInformacionMultas(aMultas);
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "Vuelve a Intentarlo");
-                    System.out.println("PRUEBAAAA");
+                    JOptionPane.showMessageDialog(null, "Vuelve a Intentarlo...,");
                     break;
             }
         } while (vOpcionMenu != 9);
