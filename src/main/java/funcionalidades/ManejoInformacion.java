@@ -7,6 +7,7 @@ import com.josueemilian.biblioteca.Libros;
 import com.josueemilian.biblioteca.Copia;
 import com.josueemilian.biblioteca.Lectores;
 import com.josueemilian.biblioteca.Prestamos;
+import com.josueemilian.biblioteca.Multas;
 import java.util.ArrayList;
 import javax.swing.*;
 
@@ -100,8 +101,7 @@ public class ManejoInformacion {
         }
     }
 
-    //CRUD EDITORIAL
-    
+    //CRUD EDITORIAL    
     private Editorial agregarEditoriales() {
         Editorial vEditorial;
         String vNombre = "";
@@ -166,8 +166,7 @@ public class ManejoInformacion {
         pEditoriales.remove(vEditoriales);
         JOptionPane.showMessageDialog(null, "Editorial Eliminada");
     }
-    
-    
+ 
     public void manejoEditoriales(int pOpcion, ArrayList<Editorial> pEditoriales) {
         Editorial vEditorial;
         switch (pOpcion) {
@@ -188,10 +187,8 @@ public class ManejoInformacion {
                 break;
         }
     }
-
-    
-    //CRUD AUTORES
-    
+  
+    //CRUD AUTORES   
     private Autor agregarAutores() {
         Autor vAutor;
         String vNombre = "";
@@ -260,8 +257,7 @@ public class ManejoInformacion {
         }
         pAutores.remove(vAutores);
         JOptionPane.showMessageDialog(null, "Autor Elimando");
-    }
-    
+    }   
     
     public void manejoAutores(int pOpcion, ArrayList<Autor> pAutores) {
         Autor vAutor;
@@ -283,8 +279,7 @@ public class ManejoInformacion {
                 break;
         }
     }
-    
-    
+       
     //CRUD LIBRO
     private Libros agregarLibros(){
         Libros vLibro;
@@ -306,8 +301,6 @@ public class ManejoInformacion {
 
         return vLibro;
     }
-    
-    
 
     private void mostrarLibros(ArrayList<Libros> pLibros) {
         String vInformacion = "";
@@ -318,7 +311,6 @@ public class ManejoInformacion {
         }
         JOptionPane.showMessageDialog(null, vInformacion, "Listado de Libros", JOptionPane.INFORMATION_MESSAGE);
     }
-
     
     private void modificarLibros(ArrayList<Libros> pLibros) {
         Libros vLibros = null;
@@ -367,9 +359,6 @@ public class ManejoInformacion {
         pLibros.remove(vLibros);
         JOptionPane.showMessageDialog(null, "Libro Elimando");
     }
-    
-  
-    
 
     public void manejoLibros(int pOpcion, ArrayList<Libros> pLibros) {
         Libros vLibro;
@@ -391,8 +380,7 @@ public class ManejoInformacion {
                 break;
         }
     }
-    
-   
+     
     //CRUD COPIAS
     private Copia agregarCopias(){
         Copia vCopia;
@@ -402,16 +390,14 @@ public class ManejoInformacion {
         
         vIdentificador = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Identificador: ", "Registro de Copias", JOptionPane.INFORMATION_MESSAGE));
         vEstado = JOptionPane.showInputDialog(null, "Ingrese el estado: ", "Registro de Copias", JOptionPane.INFORMATION_MESSAGE);
-        
-                
+                  
         Libros l = new Libros();
         
         vCopia = new Copia(vIdentificador, vEstado,l);
 
         return vCopia;
     }
-    
-    
+      
     private void mostrarCopias(ArrayList<Copia> pCopias) {
         String vInformacion = "";
         int vNumero = 1;
@@ -421,8 +407,7 @@ public class ManejoInformacion {
         }
         JOptionPane.showMessageDialog(null, vInformacion, "Listado de Libros", JOptionPane.INFORMATION_MESSAGE);
     }
-
-    
+  
     private void modificarCopias(ArrayList<Copia> pCopias) {
         Copia vCopias = null;
         String[] vAInformacion = new String[pCopias.size()];
@@ -450,7 +435,6 @@ public class ManejoInformacion {
         vCopias.setIdentificador(vIdentificador);
         vCopias.setEstado(vEstado);
     }
-
     
     private void eliminarCopia(ArrayList<Copia> pCopias) {
         Copia vCopias = null;
@@ -471,9 +455,6 @@ public class ManejoInformacion {
         pCopias.remove(vCopias);
         JOptionPane.showMessageDialog(null, "Copia Elimando");
     }
-    
- 
-    
 
     public void manejoCopias(int pOpcion, ArrayList<Copia> pCopias) {
         Copia vCopia;
@@ -509,8 +490,7 @@ public class ManejoInformacion {
         vLector = new Lectores(vDPI, vNombre);
 
         return vLector;
-    }
-    
+    } 
     
     private void mostrarLectores(ArrayList<Lectores> pLectores) {
         String vInformacion = "";
@@ -521,8 +501,7 @@ public class ManejoInformacion {
         }
         JOptionPane.showMessageDialog(null, vInformacion, "Listado de Lectores", JOptionPane.INFORMATION_MESSAGE);
     }
-
-    
+   
     private void modificarLectores(ArrayList<Lectores> pLectores) {
         Lectores vLectores = null;
         String[] vAInformacion = new String[pLectores.size()];
@@ -550,7 +529,6 @@ public class ManejoInformacion {
         vLectores.setDPI(vDPI);
         vLectores.setNombre(vNombre);
     }
-
     
     private void eliminarLectores(ArrayList<Lectores> pLectores) {
         Lectores vLectores = null;
@@ -571,9 +549,6 @@ public class ManejoInformacion {
         pLectores.remove(vLectores);
         JOptionPane.showMessageDialog(null, "Lector Elimando");
     }
-    
- 
-    
 
     public void manejoLectores(int pOpcion, ArrayList<Lectores> pLectores) {
         Lectores vLectores;
@@ -595,8 +570,7 @@ public class ManejoInformacion {
                 break;
         }
     }   
-    
-    
+        
     //CRUD PRESTAMOS
     private Prestamos agregarPrestamos(){
         Prestamos vPrestamo;
@@ -616,8 +590,7 @@ public class ManejoInformacion {
 
         return vPrestamo;
     }
-    
-    
+   
     private void mostrarPrestamos(ArrayList<Prestamos> pPrestamos) {
         String vInformacion = "";
         int vNumero = 1;
@@ -627,7 +600,6 @@ public class ManejoInformacion {
         }
         JOptionPane.showMessageDialog(null, vInformacion, "Listado de Prestamos", JOptionPane.INFORMATION_MESSAGE);
     }
-
   
     private void modificarPrestamos(ArrayList<Prestamos> pPrestamos) {
         Prestamos vPrestamos = null;
@@ -662,7 +634,6 @@ public class ManejoInformacion {
         
     }
 
-   
     private void eliminarPrestamos(ArrayList<Prestamos> pPrestamos) {
         Prestamos vPrestamos = null;
         String[] vAInformacion = new String[pPrestamos.size()];
@@ -682,10 +653,7 @@ public class ManejoInformacion {
         pPrestamos.remove(vPrestamos);
         JOptionPane.showMessageDialog(null, "Prestamo Elimando");
     }
-    
  
-    
-
     public void manejoPrestamos(int pOpcion, ArrayList<Prestamos> pPrestamos) {
         Prestamos vPrestamos;
         switch (pOpcion) {
@@ -706,7 +674,108 @@ public class ManejoInformacion {
                 break;
         }
     }   
-    
-   
+     
+    //CRUD MULTAS
+    private Multas agregarMultas(){
+        Multas vMulta;
+        
+        int vNumeroMulta; 
+        int vMonto;
+        String vFechaMulta = "";
+        String vEstado = "";
+        Lectores l = new Lectores();
+                 
+        vNumeroMulta = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Numero de Multa: ", "Registro de Multas", JOptionPane.INFORMATION_MESSAGE));
+        vMonto = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Monto: ", "Registro de Multas", JOptionPane.INFORMATION_MESSAGE));
+        vFechaMulta = JOptionPane.showInputDialog(null, "Ingrese la fecha de la multa: ", "Registro de Multas", JOptionPane.INFORMATION_MESSAGE);
+        vEstado = JOptionPane.showInputDialog(null, "Ingrese el estado: ", "Registro de Multas", JOptionPane.INFORMATION_MESSAGE);
 
+        vMulta = new Multas(vNumeroMulta, vFechaMulta, vMonto, vEstado, l);
+
+        return vMulta;
+    }
+     
+    private void mostrarMultas(ArrayList<Multas> pMultas) {
+        String vInformacion = "";
+        int vNumero = 1;
+        for (Multas e : pMultas) {
+            vInformacion = vInformacion + "\n" + vNumero + "-" + e.toString();
+            vNumero++;
+        }
+        JOptionPane.showMessageDialog(null, vInformacion, "Listado de Multas", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void modificarMultas(ArrayList<Multas> pMultas) {
+        Multas vMultas = null;
+        String[] vAInformacion = new String[pMultas.size()];
+        String vInformacion = "";
+        
+        int vNumeroMulta; 
+        int vMonto;
+        String vFechaMulta = "";
+        String vEstado = "";
+        
+        int vNumero = 0;
+        for (Multas e: pMultas) {            
+            vAInformacion[vNumero] = e.getFechaMulta();
+            vNumero++;
+        }
+        vInformacion = (String) JOptionPane.showInputDialog(null, "Cual es la multa a modificar", "Listado de Multas", JOptionPane.INFORMATION_MESSAGE, null, vAInformacion, 1);
+        for (Multas e : pMultas) {
+            if (e.getFechaMulta().equalsIgnoreCase(vInformacion)) {
+                vMultas = e;
+                break;
+            }
+        }
+
+        vNumeroMulta = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Numero de Multa", "Actualizacion de Multas", JOptionPane.INFORMATION_MESSAGE));
+        vMonto = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Monto de Multa", "Actualizacion de Multas", JOptionPane.INFORMATION_MESSAGE));
+        vFechaMulta = JOptionPane.showInputDialog(null, "Ingrese la fecha de la multa", "Actualizacion de Multas", JOptionPane.INFORMATION_MESSAGE);
+        vEstado = JOptionPane.showInputDialog(null, "Ingrese el Estado", "Actualizacion de Multas", JOptionPane.INFORMATION_MESSAGE);
+        vMultas.setNumeroMulta(vNumeroMulta);
+        vMultas.setMonto(vMonto);
+        vMultas.setFechaMulta(vFechaMulta);
+        vMultas.setEstado(vEstado);  
+    }
+ 
+    private void eliminarMultas(ArrayList<Multas> pMultas) {
+        Multas vMultas = null;
+        String[] vAInformacion = new String[pMultas.size()];
+        String vInformacion = "";
+        int vNumero = 0;
+        for (Multas e: pMultas) {
+            vAInformacion[vNumero] = e.getFechaMulta();
+            vNumero++;
+        }
+        vInformacion = (String) JOptionPane.showInputDialog(null, "Cual es la multa a eliminar", "Listado de Prestamos", JOptionPane.INFORMATION_MESSAGE, null, vAInformacion, 1);
+        for (Multas e : pMultas) {
+            if (e.getFechaMulta().equalsIgnoreCase(vInformacion)) {
+                vMultas = e;
+                break;
+            }
+        }
+        pMultas.remove(vMultas);
+        JOptionPane.showMessageDialog(null, "Multa Elimando");
+    }
+
+    public void manejoMultas(int pOpcion, ArrayList<Multas> pMultas) {
+        Multas vMultas;
+        switch (pOpcion) {
+            case 1:
+                vMultas = agregarMultas();
+                pMultas.add(vMultas);
+                break;
+            case 2:
+                 mostrarMultas(pMultas);
+                break;
+            case 3:
+                modificarMultas(pMultas);
+                break;
+            case 4:
+                eliminarMultas(pMultas);
+                break;
+            default:
+                break;
+        }
+    }   
 }

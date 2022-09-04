@@ -20,6 +20,7 @@ public class Biblioteca {
         ArrayList<Copia> aCopias = new ArrayList();
         ArrayList<Lectores> aLectores = new ArrayList();
         ArrayList<Prestamos> aPrestamos = new ArrayList();
+        ArrayList<Multas> aMultas = new ArrayList();
         
         //intanciamos las clases
         manejoMenu oMenu = new manejoMenu();
@@ -33,6 +34,7 @@ public class Biblioteca {
         oArchivos.recuperarInformacionCopias(aCopias);
         oArchivos.recuperarInformacionLectores(aLectores);
         oArchivos.recuperarInformacionPrestamos(aPrestamos);
+        oArchivos.recuperarInformacionMultas(aMultas);
         
         
         do {
@@ -63,6 +65,7 @@ public class Biblioteca {
                     oInformacion.manejoPrestamos(vOpcionSubMenu, aPrestamos);
                     break;
                 case 8:
+                    oInformacion.manejoMultas(vOpcionSubMenu, aMultas);
                     break;
                 case 9:
                     oArchivos.resguardarInformacion(aCategorias);
@@ -72,6 +75,7 @@ public class Biblioteca {
                     oArchivos.resguardarInformacionCopias(aCopias);
                     oArchivos.resguardarInformacionLectores(aLectores);
                     oArchivos.resguardarInformacionPrestamos(aPrestamos);
+                    oArchivos.resguardarInformacionMultas(aMultas);
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Vuelve a Intentarlo");

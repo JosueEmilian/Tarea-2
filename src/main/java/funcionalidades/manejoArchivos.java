@@ -7,6 +7,7 @@ import com.josueemilian.biblioteca.Libros;
 import com.josueemilian.biblioteca.Copia;
 import com.josueemilian.biblioteca.Lectores;
 import com.josueemilian.biblioteca.Prestamos;
+import com.josueemilian.biblioteca.Multas;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -314,6 +315,49 @@ public class manejoArchivos {
         }
     }
     
+    //Txt Multas
+    private void guardarMultas(ArrayList<Multas> pMultas) {
+        String vNombreArchivo = "multas.txt";
+        try {
+            FileOutputStream archivoSalida = new FileOutputStream(vNombreArchivo);
+            ObjectOutputStream objetoSalida = new ObjectOutputStream(archivoSalida);
+            for (Multas e : pMultas) {
+                objetoSalida.writeObject(e);
+            }
+            objetoSalida.close();
+            archivoSalida.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Archivo no disponible | " + ex);
+        } catch (IOException ex) {
+            System.out.println("Archivo no disponible ok | " + ex);
+        }
+
+    }
+
+    private void recuperarMultas(ArrayList<Multas> pMultas) {
+        String vNombreArchivo = "multas.txt";
+        Multas vMultas = null;
+        try {
+            FileInputStream archivoEntrada = new FileInputStream(vNombreArchivo);
+            ObjectInputStream objetoEntrada = new ObjectInputStream(archivoEntrada);
+            while (objetoEntrada != null) {
+                vMultas = (Multas) objetoEntrada.readObject();
+                pMultas.add(vMultas);
+            }
+            objetoEntrada.close();
+            archivoEntrada.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error: " + ex);
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex);
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Error: " + ex);
+        }
+    }
+
+    
+    
+    
     //////////////////////////////
     public void resguardarInformacion(ArrayList<Categoria> pCategorias) {
         guardarCategorias(pCategorias);
@@ -369,5 +413,13 @@ public class manejoArchivos {
     
     public void recuperarInformacionPrestamos(ArrayList<Prestamos> pPrestamos){
         recuperarPrestamos(pPrestamos);
+    }
+    
+    public void resguardarInformacionMultas(ArrayList<Multas> pMultas){
+        guardarMultas(pMultas);
+    }
+    
+    public void recuperarInformacionMultas(ArrayList<Multas> pMultas){
+        recuperarMultas(pMultas);
     }
 }
